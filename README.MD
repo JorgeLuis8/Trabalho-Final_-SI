@@ -26,8 +26,6 @@ ucimlrepo
 ```
 
 
-```
-
 O script irá:
 1. Baixar automaticamente o dataset do UCI ML Repository
 2. Dividir os dados em treino e teste (Hold-out)
