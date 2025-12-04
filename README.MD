@@ -16,17 +16,77 @@ O objetivo é prever se um paciente possui câncer de mama (classificação bin�
   - Validação estratificada
 
 ## Tecnologias Utilizadas
+
 ```
 python >= 3.8
-pandas
-numpy
-matplotlib
-scikit-learn
-ucimlrepo
+pandas >= 2.0.0
+numpy >= 1.24.0
+matplotlib >= 3.7.0
+scikit-learn >= 1.3.0
+ucimlrepo >= 0.0.3
+seaborn >= 0.12.0
+joblib >= 1.3.0
+scipy >= 1.10.0
 ```
 
+## Instalação
+
+### 1. Clone o repositório
+```bash
+git clone https://github.com/seu-usuario/cancer-classification-mlp.git
+cd cancer-classification-mlp
+```
+
+### 2. Crie um ambiente virtual (recomendado)
+```bash
+# Windows
+python -m venv venv
+venv\Scripts\activate
+
+# Linux/Mac
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### 3. Instale as dependências
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Execute o projeto
+```bash
+python cancer_classification.py
+```
+
+## Arquivo requirements.txt
+
+Crie um arquivo `requirements.txt` na raiz do projeto com o seguinte conteúdo:
+
+```txt
+# Classificação de Câncer de Mama com Redes Neurais (MLP)
+# Requirements file para instalação de dependências
+
+# Core ML e Data Science
+numpy>=1.24.0,<2.0.0
+pandas>=2.0.0,<3.0.0
+scikit-learn>=1.3.0,<2.0.0
+
+# Visualização
+matplotlib>=3.7.0,<4.0.0
+seaborn>=0.12.0,<1.0.0
+
+# Dataset UCI ML Repository
+ucimlrepo>=0.0.3
+
+# Utilitários (opcionais mas recomendados)
+joblib>=1.3.0
+scipy>=1.10.0
+```
+
+## Uso
 
 O script irá:
+
 1. Baixar automaticamente o dataset do UCI ML Repository
 2. Dividir os dados em treino e teste (Hold-out)
 3. Normalizar as features
@@ -49,6 +109,7 @@ O modelo avalia o desempenho através de:
 O script gera uma matriz de confusão mostrando verdadeiros positivos, verdadeiros negativos, falsos positivos e falsos negativos.
 
 ## Arquitetura do Modelo
+
 ```
 Camada de Entrada → [100 neurônios] → [50 neurônios] → Saída (2 classes)
                      ↓ tanh          ↓ tanh           ↓ softmax
@@ -63,15 +124,19 @@ Camada de Entrada → [100 neurônios] → [50 neurônios] → Saída (2 classes
 ## Metodologia
 
 ### Hold-out
+
 Separação estratificada de 20% dos dados para teste, garantindo que o modelo seja avaliado em dados nunca vistos durante o treinamento.
 
 ### Normalização
+
 Aplicação do `StandardScaler` para padronizar features (média 0, desvio padrão 1), essencial para convergência de redes neurais.
 
 ### Validação
+
 Métricas calculadas exclusivamente no conjunto de teste para avaliar a generalização do modelo.
 
 ## Estrutura do Código
+
 ```
 cancer_classification.py
 │
@@ -94,12 +159,15 @@ cancer_classification.py
 ## Contribuindo
 
 Contribuições são bem-vindas. Sinta-se à vontade para:
+
 - Reportar bugs
 - Sugerir melhorias
 - Adicionar novos modelos
 - Melhorar a documentação
 
+## Licença
 
+Este projeto é de código aberto e está disponível sob a licença MIT.
 
 ## Referências
 
